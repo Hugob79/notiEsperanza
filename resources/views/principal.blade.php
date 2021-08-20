@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-Hola
+<h1>Pagina principal</h1>
+@livewire('noticias-component')
     
 @endsection

@@ -19,4 +19,4 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/administrador', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
+Route::get('/administrador/admin-noticias', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');

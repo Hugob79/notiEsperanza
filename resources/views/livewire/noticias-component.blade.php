@@ -1,3 +1,3 @@
-<div>
-    {{-- Be like water. --}}
+<div class='container'>
+    <h2>Noticias Esperanza</h2>
 </div>

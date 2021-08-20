@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Noticias Esperanza') }}</title>
+    <title>Noticias Esperanza</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -18,14 +18,20 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.min.css">
+
+
     @livewireStyles
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+            
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ 'Noticias Esperanza' }}
+                <i class="far fa-newspaper"> </i> <span style="color:white;">...</span>{{ 'Noticias Esperanza' }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -43,15 +49,15 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Ingresar') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}"> <i class="fas fa-user-lock"></i> <span style="color:white;">...</span>{{ __('Admin.') }}</a>
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            <!-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                                 </li>
-                            @endif
+                            @endif -->
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -80,6 +86,10 @@
             @yield('content')
         </main>
     </div>
+    <!-- FONT AWESOME PARA ICONOS -->
+    <script src="fontawesome-free-5.15.2-web/js/all.min.js"></script>
+
+
     @livewireScripts
 </body>
 </html>

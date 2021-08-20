@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<h2>Consulte con el administrador para registrarse. Pillin, adivinaste la ruta :)</h2>
+<!-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -73,5 +74,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 @endsection
