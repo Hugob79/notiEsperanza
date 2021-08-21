@@ -84,12 +84,35 @@
 
         <main class="py-4">
             @yield('content')
-        </main>
-    </div>
+   
     <!-- FONT AWESOME PARA ICONOS -->
     <script src="fontawesome-free-5.15.2-web/js/all.min.js"></script>
-
-
+    
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     @livewireScripts
+      
+     
+        </main>
+    </div>
+   
+
+    
+    <script>
+     Livewire.on('noticia', (event)=>
+     {
+         if(event == 'creo')
+         {
+            Swal.fire
+            ({
+                icon: 'success',
+                title: '¡Noticia creada correctamente!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+         }
+         
+     });
+     <script> 
+ 
 </body>
 </html>

@@ -9,6 +9,7 @@
     
     <label for="titulo">Categoria</label>
     <select class="form-control" wire:model.defer="categoria" >
+        <option value="seleccione">Seleccione</option>
         <option value="educacion">Educación</option>
         <option value="institucional">Institucional</option>
         <option value="educacion">Social</option>
@@ -20,4 +21,7 @@
     @error('photo') <span class="error">{{ $message }}</span> @enderror
 
     <button class="form-control btn btn-info" wire:click="crearNoticia"> <span class="p-3">Crear Noticia</span> </button>
+
+
 </div>
+
