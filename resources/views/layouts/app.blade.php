@@ -20,8 +20,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="fontawesome-free-5.15.2-web/css/all.min.css">
+    <link rel="stylesheet" href="/fontawesome-free-5.15.2-web/css/all.min.css">
 
+    <!-- AnimateCSS-->
+    <link rel="stylesheet" href="/animate/animate.min.css">
+
+    
 
     @livewireStyles
 </head>
@@ -86,33 +90,22 @@
             @yield('content')
    
     <!-- FONT AWESOME PARA ICONOS -->
-    <script src="fontawesome-free-5.15.2-web/js/all.min.js"></script>
+    <script src="/fontawesome-free-5.15.2-web/js/all.min.js"></script>
     
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @livewireScripts
-      
-     
-        </main>
-    </div>
+
+    @include('sweetalert::alert')
+    @livewireScripts   
    
 
-    
+        </main>
+    </div>
     <script>
-     Livewire.on('noticia', (event)=>
-     {
-         if(event == 'creo')
-         {
-            Swal.fire
-            ({
-                icon: 'success',
-                title: '¡Noticia creada correctamente!',
-                showConfirmButton: false,
-                timer: 1500
-            })
-         }
-         
-     });
-     <script> 
+        
+        window.addEventListener('swal',function(e){
+            Swal.fire(e.detail);
+        });
+    </script>
  
+
 </body>
 </html>

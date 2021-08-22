@@ -33,8 +33,8 @@
                     <td>{{$noticia->foto}}</td>
 
                     <td>
-                        <button class="btn btn-warning">Editar</button> <br><br>
-                        <button class="btn btn-danger">Borrar</button>
+                        <button class="btn btn-warning" wire:click="editarNoticia({{$noticia->id}})">Editar</button> <br><br>
+                        <button class="btn btn-danger" wire:click="borrarNoticia({{$noticia->id}})">Borrar</button>
                     </td>
                 </tr>
             @endforeach

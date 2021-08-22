@@ -23,7 +23,9 @@ class AdministradorComponent extends Component
 
     public $filtro = "";
     public $porPagina = "10";
-    public $titulo, $contenido, $foto, $categoria, $ubicacion;
+    public $titulo, $contenido, $foto="", $categoria, $ubicacion;
+    
+    public $vistaNoticia="crear";
 
     public function render()
     {
@@ -42,27 +44,27 @@ class AdministradorComponent extends Component
         $this->validate(
             [
             'foto' => 'image|max:1024', // 1MB Max
+            'titulo'=>'required',
+            'contenido'=>'required'
         ]);
-        $nombreFoto = rand (0, 999) . $this->foto->getClientOriginalName();
-        $this->foto->storeAs('public/fotos-noticias' ,$nombreFoto);
         
-        //$this->foto->move('images/fotos_perfiles', $nombreFoto); //esto es para cambiar de lugar
-        $urlFoto = "storage/fotos-noticias/". $nombreFoto;
-        
+       
         $ubicacionPre = array ('izquierda', 'derecha', 'centro');
         $ubicacion = $ubicacionPre[rand(0,2)];
-        //dd($ubicacion);
+       
         if ($this->categoria =="seleccione" || $this->categoria==null)
         {
             $this->categoria = 'noticia';
         }
 
-        // if ($this->foto->hasFile('foto'))
-        // {   
-        //     $foto = $request->file('foto');
-        //     $nombreFoto = $foto->getClientOriginalName();
-        //     $perfil->url=$foto->move('images/fotos_perfiles', $nombreFoto);
-        // }
+        if (($this->foto !=null) || $this->foto != "")
+        {   
+            $nombreFoto = rand (0, 999) . $this->foto->getClientOriginalName();
+            $urlFoto = "storage/fotos-noticias/". $nombreFoto;
+            $this->foto->storeAs('public/fotos-noticias' ,$nombreFoto);
+        }else{
+            $urlFoto = "storage/fotos-noticias/sin-imagen.jpg";
+        }
 
         Noticia::create([
             'titulo'=>$this->titulo,
@@ -74,6 +76,45 @@ class AdministradorComponent extends Component
 
 
         $this->reset();
-        $this->emit('noticia', 'creo');
+        $this->foto="";
+        
+
+        $this->dispatchBrowserEvent('swal', [
+            'title' => 'Noticia creada!',
+            'timer'=>3000,
+            'icon'=>'success',
+            'toast'=>true,
+            'position'=>'top-right'
+        ]);
+    }
+
+    function editarNoticia($notiID)
+    {
+        $this->vistaNoticia="editar";
+        $noticiaEditar = Noticia::find($notiID);
+        $this->titulo = $noticiaEditar->titulo;
+        $this->contenido = $noticiaEditar->contenido;
+    }
+
+    function actualizarNoticia()
+    {
+        //llegue hasta aca
+    }
+
+    function volverCrear(){
+        $this->reset();
+        $this->vistaNoticia="crear";
+    }
+
+    function borrarNoticia($idNoticia)
+    {
+        Noticia::destroy($idNoticia);
+        $this->dispatchBrowserEvent('swal', [
+            'title' => 'Noticia borrada!',
+            'timer'=>3000,
+            'icon'=>'warning',
+            'toast'=>true,
+            'position'=>'top-right'
+        ]);
     }
 }

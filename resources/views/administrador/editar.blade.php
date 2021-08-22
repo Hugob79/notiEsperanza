@@ -1,6 +1,6 @@
 <div class="form-group ml-1 animate__animated animate__bounce">
 
-    <h4 align="center">Crear Noticia</h4>
+    <h4 align="center">Editar Noticia</h4>
     <label for="titulo">Titulo de la noticia</label>
     <input class="form-control mb-3" type="text" name="titulo" wire:model.defer="titulo">
     @error('titulo') <span class="error text-danger">{{ $message }}</span> @enderror
@@ -20,11 +20,12 @@
     </select>
     <br>
 
-    <label for="foto">Elija una imagen:</label>
+    <!-- <label for="foto">Elija una imagen:</label>
     <input type="file" name="foto" class="form-control mb-3" wire:model="foto">
-    @error('foto') <span class="error">{{ $message }}</span> @enderror
+    @error('foto') <span class="error">{{ $message }}</span> @enderror -->
 
-    <button class="form-control btn btn-info" wire:click="crearNoticia"> <span class="p-3">Crear Noticia</span> </button>
+    <button class="btn btn-warning" wire:click="actualizarNoticia"> <span class="p-3">Actualizar Noticia</span> </button>
+    <button class="btn btn-primary" wire:click="volverCrear"> <span class="p-3">Cancelar</span> </button>
 
 
 </div>
