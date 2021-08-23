@@ -1,3 +1,5 @@
 <div class='container'>
-    <h2>Noticias Esperanza</h2>
+  
+
+    @include('noticias')
 </div>

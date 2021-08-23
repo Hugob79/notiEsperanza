@@ -13,10 +13,27 @@
 
     <label for="titulo">Categoria</label>
     <select class="form-control" wire:model.defer="categoria" >
-        <option value="seleccione">Seleccione</option>
-        <option value="educacion">Educación</option>
-        <option value="institucional">Institucional</option>
-        <option value="educacion">Social</option>
+        @if ($categoria == 'educacion')
+            <option value="seleccione">Seleccione</option>
+            <option value="educacion" selected>Educación</option>
+            <option value="institucional">Institucional</option>
+            <option value="social">Social</option>
+        @elseif ($categoria == 'institucional')    
+            <option value="seleccione">Seleccione</option>
+            <option value="educacion" >Educación</option>
+            <option value="institucional"selected>Institucional</option>
+            <option value="social">Social</option>
+        @elseif ($categoria == 'social')    
+            <option value="seleccione">Seleccione</option>
+            <option value="educacion" >Educación</option>
+            <option value="institucional">Institucional</option>
+            <option value="social" selected>Social</option>
+        @else
+            <option value="seleccione">Seleccione</option>
+            <option value="educacion" >Educación</option>
+            <option value="institucional">Institucional</option>
+            <option value="social">Social</option>
+        @endif
     </select>
     <br>
 

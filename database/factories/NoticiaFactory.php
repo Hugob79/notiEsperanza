@@ -21,12 +21,14 @@ class NoticiaFactory extends Factory
      */
     public function definition()
     {
+        $rutaFoto= '/storage/fotos-noticias/sin-imagen.jpg';
         return [
             'titulo' => $this->faker->sentence,
             'contenido' => $this->faker->text,
             'categoria' => $this->faker->randomElement(['social', 'institucional', 'educacion']),
-            'foto' => $this->faker->randomElement(['/imagenes/foto3.jpg', '/imagenes/foto2.jpg', '/imagenes/foto1.jpg']),
-            'ubicacion' => $this->faker->randomElement(['centro', 'izquierda', 'derecha'])
+            // 'foto' => $this->faker->randomElement(['/imagenes/foto3.jpg', '/imagenes/foto2.jpg', '/imagenes/foto1.jpg']),
+            'foto' => $this->faker->imageUrl($width = 640, $height = 480),
+            'ubicacion' => $this->faker->randomElement(['center', 'right', 'left'])
         ];
     }
 }

@@ -16,7 +16,7 @@
         <option value="seleccione">Seleccione</option>
         <option value="educacion">Educación</option>
         <option value="institucional">Institucional</option>
-        <option value="educacion">Social</option>
+        <option value="social">Social</option>
     </select>
     <br>
 

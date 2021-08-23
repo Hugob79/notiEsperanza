@@ -15,7 +15,7 @@
 <!-- #endregion -->
 
 
-    <table class="table table-responsive">
+    <table class="table">
         <thead>
             <th>Título</th>
             <th>Contenido</th>
@@ -30,8 +30,8 @@
                     <td>{{$noticia->titulo}}</td>
                     <td>{{$noticia->contenido}}</td>
                     <td>{{$noticia->categoria}}</td>
-                    <td>{{$noticia->foto}}</td>
-
+                    <td><img src="{{$noticia->foto}}" alt="Foto de la noticia" width="150"></td>
+                   
                     <td>
                         <button class="btn btn-warning" wire:click="editarNoticia({{$noticia->id}})">Editar</button> <br><br>
                         <button class="btn btn-danger" wire:click="borrarNoticia({{$noticia->id}})">Borrar</button>
