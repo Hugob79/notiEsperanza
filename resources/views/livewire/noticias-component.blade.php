@@ -1,4 +1,4 @@
-<div class='container'>
+<div>
   
 
     @include('noticias')

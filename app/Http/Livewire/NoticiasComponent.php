@@ -11,7 +11,7 @@ class NoticiasComponent extends Component
     use WithPagination;
 
     public $filtro = "";
-    public $porPagina = "5";
+    public $porPagina = "6";
 
     public $paginationTheme = "bootstrap"; //Es importante ponerlo porque si no se va todo al carajo
 
