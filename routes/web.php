@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('principal');
 });
 
+Route::get('/acercaDe', function () {
+    return view('acerca-de');
+});
+
+
 Auth::routes();
 
 Route::get('/administrador/admin-noticias', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');

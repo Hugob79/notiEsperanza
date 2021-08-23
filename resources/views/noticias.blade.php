@@ -42,4 +42,7 @@
         
    
 {{$noticias->links()}}
+
+<footer><div class="text-center" style="border-top:1px solid grey;"><a href="/acercaDe">
+ Acerca de este proyecto</a></div></footer>
 </div>
