@@ -12,18 +12,40 @@ class NoticiasComponent extends Component
 
     public $filtro = "";
     public $porPagina = "6";
+    public $categoria='';
 
     public $paginationTheme = "bootstrap"; //Es importante ponerlo porque si no se va todo al carajo
 
     public function render()
     {
+        if ($this->categoria != "")
+        {
+            $noticias = Noticia::latest()
+            ->Where('categoria', $this->categoria)
+            ->Where('titulo', 'LIKE', "%$this->filtro%")
+            ->Where('contenido', 'LIKE', "%$this->filtro%")
+            ->paginate($this->porPagina);
+        }else{
+            $noticias = Noticia::latest()
+            ->Where('titulo', 'LIKE', "%$this->filtro%")
+            ->orWhere('contenido', 'LIKE', "%$this->filtro%")
+            ->orWhere('categoria', 'LIKE', "%$this->filtro%")
+            ->paginate($this->porPagina);
+        }
+        
+        if (count($noticias)>=1)
+        {
+            //dd($noticias);
+            return view('livewire.noticias-component', ['noticias'=>$noticias]); 
+        }else{
+            //dd($noticias);
+            return view('livewire.noticias-component', ['noticias'=>'vacio']); 
+        }
 
-        $noticias = Noticia::latest()
-        ->where('titulo', 'LIKE', "%$this->filtro%")
-        ->orWhere('contenido', 'LIKE', "%$this->filtro%")
-        ->orWhere('categoria', 'LIKE', "%$this->filtro%")
-        ->paginate($this->porPagina);
+       
+       
+        
 
-        return view('livewire.noticias-component', ['noticias'=>$noticias]);
+        
     }
 }
