@@ -1,3 +1,4 @@
+<div class="container">
 @extends('layouts.app')
 
 @section('content')
@@ -5,3 +6,5 @@
 @livewire('noticias-component')
     
 @endsection
+
+</div>

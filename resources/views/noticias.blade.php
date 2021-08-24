@@ -1,7 +1,8 @@
-<div class="m-1 p-1">
+<div class="m-1 p-1 text-center">
+
     <!-- #region Buscador -->
 
-    <div class="form-inline">
+    <div class="form-inline row justify-content-center">
                 <div class="mb-2">
                     <input wire:model.debounce.500ms="filtro" class="form-control input-sm" type="text" placeholder="Buscar...">
 
@@ -23,7 +24,7 @@
                 </div>
         </div>
     <!-- #endregion -->
-    
+   
     @if ($noticias != "vacio")
         @foreach ($noticias as $noticia )
         <!-- <div class="pr-3 pl-3 mb-3" style="vertical-align: top; min-height:400px; display: inline-block; width:33%; border-right: 1px solid grey; "> -->
@@ -42,21 +43,20 @@
                 <div class="card-body">
                     <h4 class="card-title"><b>{{$noticia->titulo}}</b></h4>
                     <div class="text-right"><strong>{{$noticia->categoria}}</strong></div><br>
-                    <p class="card-text" style="font-size:14px;font-family: Verdana, Geneva, Tahoma, sans-serif;">{{$noticia->contenido}}</p>
+                    <p class="card-text text-justify" style="font-size:14px;font-family: Verdana, Geneva, Tahoma, sans-serif;">{{$noticia->contenido}}</p>
                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                 </div>
             </div>
 
         @endforeach 
-        <div class="text-center">        {{$noticias->links()}}     </div>
+        <div style="text-align:center; width:100px;">        {{$noticias->links()}}     </div>
 
     @else
     <h2 class="text-center">Sin resultados</h2>
     
     @endif
         
-  
-
+   
         
    
 

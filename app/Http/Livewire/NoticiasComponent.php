@@ -24,13 +24,13 @@ class NoticiasComponent extends Component
             ->Where('categoria', $this->categoria)
             ->Where('titulo', 'LIKE', "%$this->filtro%")
             ->Where('contenido', 'LIKE', "%$this->filtro%")
-            ->paginate($this->porPagina);
+            ->paginate($this->porPagina)->onEachSide(1); //con eachside puedo optimizar para celu
         }else{
             $noticias = Noticia::latest()
             ->Where('titulo', 'LIKE', "%$this->filtro%")
             ->orWhere('contenido', 'LIKE', "%$this->filtro%")
             ->orWhere('categoria', 'LIKE', "%$this->filtro%")
-            ->paginate($this->porPagina);
+            ->paginate($this->porPagina)->onEachSide(1);
         }
         
         if (count($noticias)>=1)
