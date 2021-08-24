@@ -26,18 +26,32 @@
     
     @if ($noticias != "vacio")
         @foreach ($noticias as $noticia )
-        <div class="pr-3 pl-3 mb-3" style="vertical-align: top; min-height:400px; display: inline-block; width:33%; border-right: 1px solid grey; ">
-            <h3>{{$noticia->titulo}}</h3>
-            <div class="text-right"><strong>{{$noticia->categoria}}</strong></div><br>
-            <div style="font-size:16px;font-family: Verdana, Geneva, Tahoma, sans-serif;">{{$noticia->contenido}}</div>
-            <img src="{{$noticia->foto}}" alt="Foto de la noticia" style="float:{{$noticia->ubicacion}}; width:80%;">
-        </div>   
+        <!-- <div class="pr-3 pl-3 mb-3" style="vertical-align: top; min-height:400px; display: inline-block; width:33%; border-right: 1px solid grey; "> -->
+<!--         
+            <div class="col-sm">
+            <br>
+                <h3>{{$noticia->titulo}}</h3>
+                <div class="text-right"><strong>{{$noticia->categoria}}</strong></div><br>
+                <div style="font-size:16px;font-family: Verdana, Geneva, Tahoma, sans-serif;">{{$noticia->contenido}}</div>
+                <img src="{{$noticia->foto}}" alt="Foto de la noticia" style="float:{{$noticia->ubicacion}}; width: 250px;;">
+                <br><br>
+            </div>
+  -->
+            <div class="card border-info mb-3" style="width: 25rem; display:inline-block; vertical-align: top">
+                <img src="{{$noticia->foto}}" class="card-img-top img-fluid" alt="Foto de la noticia">
+                <div class="card-body">
+                    <h4 class="card-title"><b>{{$noticia->titulo}}</b></h4>
+                    <div class="text-right"><strong>{{$noticia->categoria}}</strong></div><br>
+                    <p class="card-text" style="font-size:14px;font-family: Verdana, Geneva, Tahoma, sans-serif;">{{$noticia->contenido}}</p>
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+            </div>
 
         @endforeach 
+        <div class="text-center">        {{$noticias->links()}}     </div>
 
-        {{$noticias->links()}}     
     @else
-    <h2>Sin resultados</h2>
+    <h2 class="text-center">Sin resultados</h2>
     
     @endif
         
