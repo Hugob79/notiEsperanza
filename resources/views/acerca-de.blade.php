@@ -3,7 +3,7 @@
 @section('content')
 <h3 class="text-center">Acerca de este proyecto</h3>
 <br>
-<div class="p-5 m-5" style="font-size:15px;">
+<div class="p-5 m-1" style="font-size:15px;">
     <p>
     Este fue un trabajo realizado para la materia <strong>Tecnologías Web</strong> de la Tecnicatura en 
     Software Libre de la Universidad Nacional del Litoral.</p>
@@ -14,7 +14,13 @@
     <br>
 </div>
 
-<div class="text-center alert-success p-1 mb-2"><h3><a href="https://github.com/Hugob79/notiEsperanza.git">¡Cloná este repositorio!</a><h3></div>
+<div class="text-center" >
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Licencia Creative Commons Atribución-CompartirIgual 4.0 Internacional</a>.
+</div>
+
+<div class="text-center alert-success p-1 mb-2">
+    <h3><a href="https://github.com/Hugob79/notiEsperanza.git">¡Cloná este repositorio!</a><h3>
+</div>
 
 <div class="text-center">
     <a href="/">Volver a la página principal</a>
