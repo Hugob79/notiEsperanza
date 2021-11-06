@@ -42,7 +42,11 @@
                 <img src="{{$noticia->foto}}" class="card-img-top img-fluid" alt="Foto de la noticia">
                 <div class="card-body">
                     <h4 class="card-title"><b>{{$noticia->titulo}}</b></h4>
-                    <div class="text-right"><strong>{{$noticia->categoria}}</strong></div><br>
+                    <div class="alert-info text-center">
+                        <div style="float:left;"><i>{{date("d/m/Y", strtotime($noticia->created_at))}}</i></div>
+                        <div class="text-right" style="float:right; width:50%"><strong>{{$noticia->categoria}}</strong></div>
+                    </div>
+                    <br>
                     <p class="card-text text-justify" style="font-size:14px;font-family: Verdana, Geneva, Tahoma, sans-serif;">{{$noticia->contenido}}</p>
                     <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                 </div>

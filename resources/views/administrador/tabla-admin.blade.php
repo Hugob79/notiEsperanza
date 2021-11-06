@@ -20,6 +20,7 @@
             <th>Título</th>
             <th>Contenido</th>
             <th>Categoría</th>
+            <th>Fecha</th>
             <th>Imagen</th>
             <th>Acción</th>
         </thead>
@@ -30,6 +31,7 @@
                     <td>{{$noticia->titulo}}</td>
                     <td>{{$noticia->contenido}}</td>
                     <td>{{$noticia->categoria}}</td>
+                    <td>{{date("d/m/Y", strtotime($noticia->created_at))}}</td>
                     <td><img src="{{$noticia->foto}}" alt="Foto de la noticia" width="150"></td>
                    
                     <td>
